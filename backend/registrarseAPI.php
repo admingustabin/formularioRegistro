@@ -29,7 +29,7 @@ if ($option == "incluirUsuario") {
     $sql = "INSERT INTO usuarios (id, email, password, status) VALUES (NULL, '$email', '$password', 0)";
 
     if (mysqli_query($conn, $sql)) {
-        $data = array('exito'=>'1');
+        $data = array('exito'=>'1');  
         //enviar un email
 
         mysqli_close($conn);
@@ -38,6 +38,7 @@ if ($option == "incluirUsuario") {
         $data = array('error'=>'3')
         die(json_encode($data));
     }
+    //hacer algo....
 }
 
 

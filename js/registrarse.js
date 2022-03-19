@@ -38,7 +38,8 @@ function incluirUsuario() {
                             //Redirigir a gracias.php
                             window.location.href="gracias.php";
                         }, 4000);
-                        //fin de la espera de los 4 segundos
+                        //fin de la espera de los 4 segundos  
+                        //hacer algo mas....
                     }
                 }
             })
