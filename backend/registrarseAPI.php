@@ -38,6 +38,7 @@ if ($option == "incluirUsuario") {
         $data = array('error'=>'3')
         die(json_encode($data));
     }
+    //Verificar que todo....
 }
 
 
