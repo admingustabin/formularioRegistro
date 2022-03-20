@@ -6,7 +6,7 @@ function incluirUsuario() {
         $("body").on("submit", "#formDefault", function(event){
             event.preventDefault();
             if($("#formDefault").valid()){
-                // barra
+                $("#barra").show();
                 $.ajax({
                     type: "POST",
                     url: "backend/registrarseAPI.php?option=incluirUsuario",
@@ -14,7 +14,7 @@ function incluirUsuario() {
                     data: $(this).serialize(),
                     success: function(respuesta){
                         console.log(respuesta);
-                        // ocultar barra
+                        $("#barra").hide();
                         if (respuesta.error == 1) {
                             swal(
                                 "Houston, tenemos un problema",
