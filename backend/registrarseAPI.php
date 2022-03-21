@@ -55,7 +55,7 @@ if ($option == "incluirUsuario") {
         $cuerpo = "<h2>Apreciado cliente, </h2>  <br>
             Hemos recibido su solicitud para crear un usuario. <br><br>            
             <b>Su usuario es:</b> $email<br>            
-                Por favor lea los <a href=https://www.gustabin.com/site/terminos/terminos.php>terminos y condiciones</a> 
+                Por favor lea los <a href=http://localhost/plantilla/terminos.html>terminos y condiciones</a> 
                 y si esta de acuerdo haga click en el siguiente enlace para 
                 <a href=http://localhost/plantilla/backend/registrarseAPI.php?option=activarUsuario&usuario=$email&clave=$password>activar su cuenta.
             </a>
