@@ -39,7 +39,7 @@ function incluirUsuario() {
                         if (respuesta.exito == 1) {
                             swal(
                                 "Solicitud realizada!",
-                                "La cuenta fue creada",
+                                "La cuenta fue creada, hemos enviado un email de activación.",
                                 "success"
                             );                            
                             //Limpiar el formulario

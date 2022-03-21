@@ -28,8 +28,7 @@ if ($option == "incluirUsuario") {
     $sql = "INSERT INTO `usuarios` (`id`, `email`, `password`, `status`) VALUES (NULL, '$email', '$password', '0')";
     try {
         $conn->query($sql);
-        $data = array('exito'=>'1');  
-        //enviar un email
+        $data = array('exito'=>'1'); 
 
         $destino = "gustabin@yahoo.com";
         $asunto = "Usuario registrado en el sistema";
@@ -48,20 +47,17 @@ if ($option == "incluirUsuario") {
         $yourWebsite = "gustabin.com";
         $yourEmail = "info@gustabin.com";
         $cabeceras = "From: $yourWebsite <$yourEmail>\n" . "Reply-To: cuentas@gustabin.com" . "\n" . "Content-type: text/html";
-
         mail($destino, $asunto, $cuerpo, $cabeceras);
-
 
 
         $destino = $email;
         $asunto = "Activar cuenta en carrito de compras";
         $cuerpo = "<h2>Apreciado cliente, </h2>  <br>
-            Hemos recibido su solicitud para crear un usuario. <br><br>
-            
+            Hemos recibido su solicitud para crear un usuario. <br><br>            
             <b>Su usuario es:</b> $email<br>            
                 Por favor lea los <a href=https://www.gustabin.com/site/terminos/terminos.php>terminos y condiciones</a> 
                 y si esta de acuerdo haga click en el siguiente enlace para 
-                <a href=https://www.gustabin.com/modulos/login/activacion.php?usuario=$email&clave=$password>activar su cuenta.
+                <a href=http://localhost/plantilla/backend/registrarseAPI.php?option=activarUsuario&usuario=$email&clave=$password>activar su cuenta.
             </a>
             <br><br>
 
@@ -74,11 +70,9 @@ if ($option == "incluirUsuario") {
             <h5>Desarrollado por Gustabin<br>
             Copyright © 2022. Todos los derechos reservados. Version 1.0.0 <br></h5>
             ";
-
         $yourWebsite = "gustabin.com";
         $yourEmail = "info@gustabin.com";
         $cabeceras = "From: $yourWebsite <$yourEmail>\n" . "Reply-To: cuentas@gustabin.com" . "\n" . "Content-type: text/html";
-
         mail($destino, $asunto, $cuerpo, $cabeceras);
 
         mysqli_close($conn);        
@@ -89,6 +83,17 @@ if ($option == "incluirUsuario") {
             $data = array('error'=>'3');
             die(json_encode($data));
         }
-    }
-    
+    }    
+}
+
+
+if ($option == 'activarUsuario') {
+    $email = $_GET['usuario'];
+    $password = $_GET['clave'];
+
+    $sql = "UPDATE usuarios SET status ='1' WHERE email='$email' AND password='$password'";
+
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    header("location:../gracias.html");
 }
